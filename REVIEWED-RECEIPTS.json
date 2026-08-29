@@ -1,0 +1,81 @@
+{
+  "artifactId": "kingdom-loops-locks-freedom-relations-atlas-2026-08-28",
+  "authorizationNotice": {
+    "authorizedRoutes": [
+      "/atlases/loops-locks-freedom-relations-atlas-2026-08-28.json",
+      "/schemas/loops-locks-freedom-relations-atlas/0.1.json",
+      "/LOOPS-LOCKS-FREEDOM-RELATIONS-ATLAS-v0.1.md"
+    ],
+    "byteSha256": "sha256:3250c3f49769dfde641f5a73bdccd59efeb626bc8131acff5894bd889bf35ecc",
+    "bytes": 991,
+    "path": "PUBLICATION-AUTHORIZATION.md"
+  },
+  "lockKind": "NON_SELF_REFERENTIAL_POST_REVIEW_RECEIPT_LOCK",
+  "nonRecursive": {
+    "generatorInput": false,
+    "publicArtifact": false,
+    "selfHashIncluded": false
+  },
+  "protocol": "kingdom.loops-locks-freedom-relations/0.1",
+  "recordCounts": {
+    "conversions": 5,
+    "equationCards": 15,
+    "freedomRelevantEnvelopes": 2,
+    "governanceFixtures": 18,
+    "kingdomSemanticOrientations": 9,
+    "lanes": 14,
+    "lockKinds": 6,
+    "mathematicalFixtures": 13,
+    "nonEquivalences": 55,
+    "sourceBindings": 17,
+    "syntheticFixtures": 31,
+    "terms": 15
+  },
+  "releaseGate": {
+    "currentState": "FROZEN_FOR_IMMUTABLE_HANDOFF",
+    "deploymentClaimed": false,
+    "externalPublicationPerformed": false,
+    "fileScopedOnly": true,
+    "lifecyclePhase": "FROZEN_STATIC_FIXTURE",
+    "publicationAuthorized": true,
+    "releaseGateSatisfied": true,
+    "releaseState": "FROZEN_FOR_IMMUTABLE_HANDOFF",
+    "runtimeAuthorized": false
+  },
+  "reviewEvidence": {
+    "humanReviewCompleted": false,
+    "independentModelReviewCompleted": true,
+    "independentModelReviewVerdict": "GREEN",
+    "jsonschemaMetaSchemaIssues": 0,
+    "jsonschemaRecordIssues": 0,
+    "jsonschemaVersion": "4.26.0",
+    "nodeTestCountAtFinalProducerReview": 45,
+    "reviewInvariantCoreSha256": "sha256:d0ebf30fc83e7716d20326f8f0a8fe348e4dbfa83f75471b16ddfbbb5ac01335"
+  },
+  "triplet": [
+    {
+      "byteSha256": "sha256:d7c67a3e97fbcdcf23b85835fced2b6f7a290ca5e8a44243bec6f9006a6e8128",
+      "bytes": 16519,
+      "destinationRoute": "/LOOPS-LOCKS-FREEDOM-RELATIONS-ATLAS-v0.1.md",
+      "mimeType": "text/markdown; charset=utf-8",
+      "producerPath": "public/LOOPS-LOCKS-FREEDOM-RELATIONS-ATLAS-v0.1.md",
+      "role": "ACCESSIBLE_LINEAR_GUIDE"
+    },
+    {
+      "byteSha256": "sha256:029221e1e39273de5b5f2cb1026f66ec21e5be42145e74fc4f5bfe60df155077",
+      "bytes": 200064,
+      "destinationRoute": "/atlases/loops-locks-freedom-relations-atlas-2026-08-28.json",
+      "mimeType": "application/json; charset=utf-8",
+      "producerPath": "public/atlases/loops-locks-freedom-relations-atlas-2026-08-28.json",
+      "role": "CANONICAL_RECORD"
+    },
+    {
+      "byteSha256": "sha256:9c6ea5c3db37b0c42ec34831a917b465adcf9ca7b8915c6124e44ad32628d475",
+      "bytes": 58486,
+      "destinationRoute": "/schemas/loops-locks-freedom-relations-atlas/0.1.json",
+      "mimeType": "application/json; charset=utf-8",
+      "producerPath": "public/schemas/loops-locks-freedom-relations-atlas/0.1.json",
+      "role": "CLOSED_SCHEMA"
+    }
+  ]
+}

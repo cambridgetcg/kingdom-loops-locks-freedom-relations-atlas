@@ -1,0 +1,22 @@
+{
+  "name": "@kingdom/loops-locks-freedom-relations-atlas",
+  "version": "0.1.0",
+  "description": "Deterministic offline static-synthetic Phase-0 atlas of loops, locks, keys, reinforcement and freedom-relevant conditions.",
+  "type": "module",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "kingdom-loops-locks-freedom-relations-atlas": "./src/cli.mjs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "validate": "node ./src/cli.mjs validate",
+    "build": "node ./src/cli.mjs build",
+    "build:check": "node ./src/cli.mjs check",
+    "overview": "node ./src/cli.mjs overview",
+    "check": "node --check ./src/io.mjs && node --check ./src/schema.mjs && node --check ./src/content.mjs && node --check ./src/verifier.mjs && node --check ./src/atlas.mjs && node --check ./src/cli.mjs && node ./src/cli.mjs validate && node ./src/cli.mjs check"
+  }
+}

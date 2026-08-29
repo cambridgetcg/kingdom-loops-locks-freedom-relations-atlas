@@ -1,0 +1,2345 @@
+{
+  "$defs": {
+    "bindings": {
+      "additionalProperties": false,
+      "properties": {
+        "booleans": {
+          "items": {
+            "$ref": "#/$defs/booleanBinding"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array"
+        },
+        "labels": {
+          "items": {
+            "$ref": "#/$defs/labelBinding"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array"
+        },
+        "rationals": {
+          "items": {
+            "$ref": "#/$defs/rationalBinding"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array"
+        },
+        "sets": {
+          "items": {
+            "$ref": "#/$defs/setBinding"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array"
+        }
+      },
+      "required": [
+        "rationals",
+        "booleans",
+        "sets",
+        "labels"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "booleanBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][A-Za-z0-9_]*$",
+          "type": "string"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "constitutionalAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "fixtureIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "rule": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "rule",
+        "fixtureIds"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "conversion": {
+      "additionalProperties": false,
+      "properties": {
+        "declaredAssumptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "forbiddenInference": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "fromLane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "informationLost": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "relation": {
+          "enum": [
+            "ANALOGY_ONLY",
+            "FORMAL_REDUCTION_UNDER_DECLARED_ASSUMPTIONS",
+            "NON_EQUIVALENT",
+            "OUTSIDE_PHASE_0"
+          ],
+          "type": "string"
+        },
+        "toLane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "fromLane",
+        "toLane",
+        "relation",
+        "declaredAssumptions",
+        "informationLost",
+        "forbiddenInference"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "declaredRight": {
+      "additionalProperties": false,
+      "properties": {
+        "applicabilityToRealCaseDetermined": {
+          "const": false,
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "legalAuthority": {
+          "const": false,
+          "type": "boolean"
+        },
+        "rule": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "sourceClass": {
+          "const": "PRODUCER_DECLARED_PHASE_0_CONSTRAINT",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "scope",
+        "rule",
+        "sourceClass",
+        "legalAuthority",
+        "applicabilityToRealCaseDetermined"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "equationCard": {
+      "additionalProperties": false,
+      "properties": {
+        "assumptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "claimClass": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "computationStatus": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "equation": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        "falsifierIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fixtureIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "lane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "linearReading": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonclaims": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "symbols": {
+          "items": {
+            "$ref": "#/$defs/symbol"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "lane",
+        "equation",
+        "linearReading",
+        "symbols",
+        "assumptions",
+        "claimClass",
+        "computationStatus",
+        "fixtureIds",
+        "falsifierIds",
+        "nonclaims"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "freedomAxis": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "enum": [
+            "NEGATIVE_LIBERTY",
+            "POSITIVE_CAPABILITY",
+            "NON_DOMINATION",
+            "EXIT_REFUSAL"
+          ],
+          "type": "string"
+        },
+        "observations": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "unresolved": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "observations",
+        "unresolved"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "freedomEnvelope": {
+      "additionalProperties": false,
+      "properties": {
+        "accessibleActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "appealOptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "axes": {
+          "items": {
+            "$ref": "#/$defs/freedomAxis"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "capableActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "consentedActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "contestationOptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "declaredModel": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "exitOptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "jointlyAdmissibleActionsUnderDeclaredModel": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "nonDominationConditions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "nonclaims": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "permittedActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "privacyCompatibleActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "recoveryOptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "returnOptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "reversibleActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rightsCompatibleActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "safeActions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "timeLabel": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "unknownConstraints": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "timeLabel",
+        "declaredModel",
+        "capableActions",
+        "permittedActions",
+        "consentedActions",
+        "safeActions",
+        "rightsCompatibleActions",
+        "accessibleActions",
+        "privacyCompatibleActions",
+        "reversibleActions",
+        "exitOptions",
+        "appealOptions",
+        "contestationOptions",
+        "recoveryOptions",
+        "returnOptions",
+        "nonDominationConditions",
+        "unknownConstraints",
+        "jointlyAdmissibleActionsUnderDeclaredModel",
+        "axes",
+        "nonclaims"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "keyKind": {
+      "additionalProperties": false,
+      "properties": {
+        "containsMaterial": {
+          "const": false,
+          "type": "boolean"
+        },
+        "executable": {
+          "const": false,
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "lane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "role": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "lane",
+        "role",
+        "containsMaterial",
+        "executable"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "kingdomOrientation": {
+      "additionalProperties": false,
+      "properties": {
+        "baseCommit": {
+          "const": "9b07ac26da03cac79709437aeea3f53b808321e1",
+          "type": "string"
+        },
+        "baseTree": {
+          "const": "d99577d666551e605271ead5c49482213347c071",
+          "type": "string"
+        },
+        "byteSha256": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "bytes": {
+          "maximum": 10000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "copiesContent": {
+          "const": false,
+          "type": "boolean"
+        },
+        "establishesTruth": {
+          "const": false,
+          "type": "boolean"
+        },
+        "hasDirectPublicRoute": {
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "importsAuthority": {
+          "const": false,
+          "type": "boolean"
+        },
+        "orientationUse": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "publicRoute": {
+          "maxLength": 512,
+          "minLength": 1,
+          "pattern": "^(?:NONE|/[^?#]*)$",
+          "type": "string"
+        },
+        "repository": {
+          "const": "cambridgetcg/KINGDOM-OS",
+          "type": "string"
+        },
+        "repositoryPath": {
+          "maxLength": 512,
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+          "type": "string"
+        },
+        "runtimeDependency": {
+          "const": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "repository",
+        "baseCommit",
+        "baseTree",
+        "repositoryPath",
+        "bytes",
+        "byteSha256",
+        "hasDirectPublicRoute",
+        "publicRoute",
+        "orientationUse",
+        "copiesContent",
+        "importsAuthority",
+        "establishesTruth",
+        "runtimeDependency"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "labelBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][A-Za-z0-9_]*$",
+          "type": "string"
+        },
+        "value": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "lockKind": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritySemantics": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "containsMechanism": {
+          "const": false,
+          "type": "boolean"
+        },
+        "executable": {
+          "const": false,
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "kindClass": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "lane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "threatModel": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "lane",
+        "kindClass",
+        "threatModel",
+        "authoritySemantics",
+        "containsMechanism",
+        "executable"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "nonEquivalence": {
+      "additionalProperties": false,
+      "properties": {
+        "declaredAssumptions": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fixtureIds": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "forbiddenInference": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "fromLane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "fromTerm": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "informationLost": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "reason": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "relation": {
+          "const": "NON_EQUIVALENT",
+          "type": "string"
+        },
+        "toLane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "toTerm": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "fromTerm",
+        "fromLane",
+        "toTerm",
+        "toLane",
+        "relation",
+        "declaredAssumptions",
+        "informationLost",
+        "reason",
+        "forbiddenInference",
+        "fixtureIds"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "publicRoute": {
+      "additionalProperties": false,
+      "properties": {
+        "absoluteUrl": {
+          "maxLength": 2048,
+          "minLength": 9,
+          "pattern": "^https://thekingdom\\.dev/[^?#]+$",
+          "type": "string"
+        },
+        "immutable": {
+          "const": true,
+          "type": "boolean"
+        },
+        "mimeType": {
+          "enum": [
+            "application/json; charset=utf-8",
+            "text/markdown; charset=utf-8"
+          ],
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "ACCESSIBLE_LINEAR_GUIDE",
+            "CANONICAL_RECORD",
+            "CLOSED_SCHEMA"
+          ],
+          "type": "string"
+        },
+        "route": {
+          "maxLength": 512,
+          "minLength": 2,
+          "pattern": "^/[^?#]+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "route",
+        "absoluteUrl",
+        "mimeType",
+        "role",
+        "immutable"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "rational": {
+      "additionalProperties": false,
+      "properties": {
+        "denominator": {
+          "maximum": 1000000000000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "numerator": {
+          "maximum": 1000000000000000,
+          "minimum": -1000000000000000,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "numerator",
+        "denominator"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "rationalBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][A-Za-z0-9_]*$",
+          "type": "string"
+        },
+        "value": {
+          "$ref": "#/$defs/rational"
+        }
+      },
+      "required": [
+        "id",
+        "value"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "setBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][A-Za-z0-9_]*$",
+          "type": "string"
+        },
+        "members": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 256,
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "members"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "sourceBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "appliesTo": {
+          "items": {
+            "$ref": "#/$defs/sourceTarget"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array"
+        },
+        "authors": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "caveat": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "copiesContent": {
+          "const": false,
+          "type": "boolean"
+        },
+        "endorsementClaimed": {
+          "const": false,
+          "type": "boolean"
+        },
+        "establishesCompliance": {
+          "const": false,
+          "type": "boolean"
+        },
+        "establishesCurrentness": {
+          "const": false,
+          "type": "boolean"
+        },
+        "establishesTruth": {
+          "const": false,
+          "type": "boolean"
+        },
+        "host": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "importsAuthority": {
+          "const": false,
+          "type": "boolean"
+        },
+        "orientation": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "publicationDate": {
+          "maxLength": 10,
+          "minLength": 4,
+          "pattern": "^\\d{4}(?:-\\d{2}(?:-\\d{2})?)?$",
+          "type": "string"
+        },
+        "rightsOrReuseStatus": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "sourceKind": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "title": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 2048,
+          "minLength": 9,
+          "pattern": "^https://[^\\s]+$",
+          "type": "string"
+        },
+        "use": {
+          "const": "LINK_ONLY_ORIENTATION",
+          "type": "string"
+        },
+        "venueOrOriginalPublisher": {
+          "maxLength": 1024,
+          "minLength": 1,
+          "type": "string"
+        },
+        "versionScope": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "authors",
+        "publicationDate",
+        "title",
+        "venueOrOriginalPublisher",
+        "host",
+        "url",
+        "sourceKind",
+        "versionScope",
+        "rightsOrReuseStatus",
+        "appliesTo",
+        "orientation",
+        "caveat",
+        "use",
+        "copiesContent",
+        "importsAuthority",
+        "establishesTruth",
+        "establishesCurrentness",
+        "establishesCompliance",
+        "endorsementClaimed"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "sourceReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "byteSha256": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "bytes": {
+          "maximum": 10000000,
+          "minimum": 1,
+          "type": "integer"
+        },
+        "path": {
+          "maxLength": 512,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "byteSha256"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "sourceTarget": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "CONSTITUTIONAL_BOUNDARIES",
+            "EQUATION_CARD",
+            "SYNTHETIC_FIXTURE"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "id"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "symbol": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "maxLength": 2048,
+          "minLength": 1,
+          "type": "string"
+        },
+        "symbol": {
+          "maxLength": 256,
+          "minLength": 1,
+          "type": "string"
+        },
+        "units": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "symbol",
+        "meaning",
+        "units"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "syntheticFixture": {
+      "additionalProperties": false,
+      "properties": {
+        "executableAction": {
+          "const": false,
+          "type": "boolean"
+        },
+        "expected": {
+          "$ref": "#/$defs/bindings"
+        },
+        "falsifies": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "humanSubjects": {
+          "const": false,
+          "type": "boolean"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "inputs": {
+          "$ref": "#/$defs/bindings"
+        },
+        "kind": {
+          "enum": [
+            "GOVERNANCE",
+            "MATHEMATICAL"
+          ],
+          "type": "string"
+        },
+        "lane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "lesson": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "type": "string"
+        },
+        "nonclaims": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "premises": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "ruleId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Z][A-Z0-9_]*$",
+          "type": "string"
+        },
+        "synthetic": {
+          "const": true,
+          "type": "boolean"
+        },
+        "title": {
+          "maxLength": 512,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "lane",
+        "kind",
+        "ruleId",
+        "premises",
+        "inputs",
+        "expected",
+        "lesson",
+        "falsifies",
+        "nonclaims",
+        "synthetic",
+        "humanSubjects",
+        "executableAction"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "term": {
+      "additionalProperties": false,
+      "properties": {
+        "definition": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[a-z][a-z0-9_]*$",
+          "type": "string"
+        },
+        "lane": {
+          "enum": [
+            "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+            "BEHAVIORAL_CONTINGENCY",
+            "BELLMAN_OPERATOR",
+            "CRYPTOGRAPHIC_VERIFICATION",
+            "DATA_GOVERNANCE",
+            "EPISTEMIC_CLAIM",
+            "FEEDBACK_CONTROL",
+            "FREEDOM_RELEVANT_CONDITIONS",
+            "MARKOV_DECISION_PROCESS",
+            "POLICY_GRADIENT",
+            "PROXY_AND_REWARD_CHANNEL",
+            "RECURRENT_DYNAMICS",
+            "STOCHASTIC_APPROXIMATION",
+            "SUPERVISED_OPTIMIZATION"
+          ],
+          "type": "string"
+        },
+        "nonclaims": {
+          "items": {
+            "maxLength": 1024,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "lane",
+        "definition",
+        "nonclaims"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    }
+  },
+  "$id": "https://thekingdom.dev/schemas/loops-locks-freedom-relations-atlas/0.1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed schema for one immutable static-synthetic Phase-0 relations atlas. Every object is recursively closed.",
+  "properties": {
+    "$schema": {
+      "const": "https://thekingdom.dev/schemas/loops-locks-freedom-relations-atlas/0.1.json",
+      "type": "string"
+    },
+    "artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "asOf": {
+          "const": "2026-08-28",
+          "type": "string"
+        },
+        "authorship": {
+          "additionalProperties": false,
+          "properties": {
+            "assistanceDisclosure": {
+              "maxLength": 4096,
+              "minLength": 1,
+              "type": "string"
+            },
+            "humanDirected": {
+              "const": true,
+              "type": "boolean"
+            },
+            "humanReviewCompleted": {
+              "const": false,
+              "type": "boolean"
+            },
+            "independentModelReviewCompleted": {
+              "type": "boolean"
+            },
+            "modelAssisted": {
+              "const": true,
+              "type": "boolean"
+            },
+            "releaseGateSatisfied": {
+              "type": "boolean"
+            },
+            "userPublicationPermissionRecorded": {
+              "const": true,
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "humanDirected",
+            "modelAssisted",
+            "assistanceDisclosure",
+            "independentModelReviewCompleted",
+            "humanReviewCompleted",
+            "userPublicationPermissionRecorded",
+            "releaseGateSatisfied"
+          ],
+          "type": "object",
+          "unevaluatedProperties": false
+        },
+        "id": {
+          "const": "kingdom-loops-locks-freedom-relations-atlas-2026-08-28",
+          "type": "string"
+        },
+        "immutableCandidate": {
+          "const": true,
+          "type": "boolean"
+        },
+        "lifecyclePhase": {
+          "enum": [
+            "DRAFT_SYNTHETIC",
+            "REVIEWED_DESIGN_ONLY",
+            "FROZEN_STATIC_FIXTURE",
+            "RETIRED"
+          ],
+          "type": "string"
+        },
+        "releaseState": {
+          "enum": [
+            "PRE_FREEZE_REVIEW_CANDIDATE",
+            "FROZEN_FOR_IMMUTABLE_HANDOFF",
+            "RETIRED"
+          ],
+          "type": "string"
+        },
+        "synthetic": {
+          "const": true,
+          "type": "boolean"
+        },
+        "title": {
+          "const": "KINGDOM Loops, Locks & Freedom Relations Atlas — Phase 0",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "asOf",
+        "lifecyclePhase",
+        "releaseState",
+        "immutableCandidate",
+        "synthetic",
+        "authorship"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "buildReceipt": {
+      "additionalProperties": false,
+      "properties": {
+        "arithmetic": {
+          "const": "EXACT_BOUNDED_BIGINT_RATIONAL_AND_FINITE_SYMBOLIC_RULES",
+          "type": "string"
+        },
+        "clockRead": {
+          "const": false,
+          "type": "boolean"
+        },
+        "externalInputUsed": {
+          "const": false,
+          "type": "boolean"
+        },
+        "generatorInputReceipts": {
+          "items": {
+            "$ref": "#/$defs/sourceReceipt"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array"
+        },
+        "networkUsed": {
+          "const": false,
+          "type": "boolean"
+        },
+        "semanticPayloadSha256": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "verifiedFixtureCount": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "verifierState": {
+          "const": "ALL_STATIC_SYNTHETIC_FIXTURES_RECOMPUTED",
+          "type": "string"
+        }
+      },
+      "required": [
+        "semanticPayloadSha256",
+        "verifierState",
+        "verifiedFixtureCount",
+        "arithmetic",
+        "clockRead",
+        "networkUsed",
+        "externalInputUsed",
+        "generatorInputReceipts"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "constitutionalBoundaries": {
+      "additionalProperties": false,
+      "properties": {
+        "assertions": {
+          "items": {
+            "$ref": "#/$defs/constitutionalAssertion"
+          },
+          "maxItems": 64,
+          "minItems": 1,
+          "type": "array"
+        },
+        "declaredRightsRegister": {
+          "items": {
+            "$ref": "#/$defs/declaredRight"
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array"
+        },
+        "forbiddenCapabilities": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Z][A-Z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 128,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "forbiddenFieldNames": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 128,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "freedomFoundation": {
+          "additionalProperties": false,
+          "properties": {
+            "definition": {
+              "maxLength": 8192,
+              "minLength": 1,
+              "type": "string"
+            },
+            "independentAxes": {
+              "items": {
+                "enum": [
+                  "NEGATIVE_LIBERTY",
+                  "POSITIVE_CAPABILITY",
+                  "NON_DOMINATION",
+                  "EXIT_REFUSAL"
+                ],
+                "type": "string"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "principles": {
+              "items": {
+                "maxLength": 1024,
+                "minLength": 1,
+                "type": "string"
+              },
+              "maxItems": 64,
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "status": {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Z][A-Z0-9_]*$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "definition",
+            "status",
+            "independentAxes",
+            "principles"
+          ],
+          "type": "object",
+          "unevaluatedProperties": false
+        },
+        "lifecycle": {
+          "additionalProperties": false,
+          "properties": {
+            "activeRuntimeAllowed": {
+              "const": false,
+              "type": "boolean"
+            },
+            "allowed": {
+              "items": {
+                "enum": [
+                  "DRAFT_SYNTHETIC",
+                  "REVIEWED_DESIGN_ONLY",
+                  "FROZEN_STATIC_FIXTURE",
+                  "RETIRED"
+                ],
+                "type": "string"
+              },
+              "maxItems": 4,
+              "minItems": 4,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "current": {
+              "enum": [
+                "DRAFT_SYNTHETIC",
+                "REVIEWED_DESIGN_ONLY",
+                "FROZEN_STATIC_FIXTURE",
+                "RETIRED"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "allowed",
+            "current",
+            "activeRuntimeAllowed"
+          ],
+          "type": "object",
+          "unevaluatedProperties": false
+        },
+        "nonCompensableFloors": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Z][A-Z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 64,
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "precedence": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Z][A-Z0-9_]*$",
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "freedomFoundation",
+        "precedence",
+        "nonCompensableFloors",
+        "declaredRightsRegister",
+        "lifecycle",
+        "forbiddenCapabilities",
+        "forbiddenFieldNames",
+        "assertions"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "conversionRegister": {
+      "items": {
+        "$ref": "#/$defs/conversion"
+      },
+      "maxItems": 128,
+      "minItems": 1,
+      "type": "array"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "conversions": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "equationCards": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "freedomRelevantEnvelopes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "governanceFixtures": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "kingdomSemanticOrientations": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "lanes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "lockKinds": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "mathematicalFixtures": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "nonEquivalences": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "sourceBindings": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "syntheticFixtures": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "terms": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "lanes",
+        "terms",
+        "lockKinds",
+        "equationCards",
+        "syntheticFixtures",
+        "mathematicalFixtures",
+        "governanceFixtures",
+        "nonEquivalences",
+        "conversions",
+        "freedomRelevantEnvelopes",
+        "sourceBindings",
+        "kingdomSemanticOrientations"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "equationCards": {
+      "items": {
+        "$ref": "#/$defs/equationCard"
+      },
+      "maxItems": 128,
+      "minItems": 1,
+      "type": "array"
+    },
+    "freedomRelevantEnvelopes": {
+      "items": {
+        "$ref": "#/$defs/freedomEnvelope"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "type": "array"
+    },
+    "kingdomSemanticOrientations": {
+      "items": {
+        "$ref": "#/$defs/kingdomOrientation"
+      },
+      "maxItems": 32,
+      "minItems": 1,
+      "type": "array"
+    },
+    "nonEquivalences": {
+      "items": {
+        "$ref": "#/$defs/nonEquivalence"
+      },
+      "maxItems": 256,
+      "minItems": 1,
+      "type": "array"
+    },
+    "protocol": {
+      "const": "kingdom.loops-locks-freedom-relations/0.1",
+      "type": "string"
+    },
+    "publicHandoff": {
+      "additionalProperties": false,
+      "properties": {
+        "currentState": {
+          "enum": [
+            "PRE_FREEZE_REVIEW_CANDIDATE",
+            "FROZEN_FOR_IMMUTABLE_HANDOFF",
+            "RETIRED"
+          ],
+          "type": "string"
+        },
+        "mutableAlias": {
+          "const": false,
+          "type": "boolean"
+        },
+        "page": {
+          "const": false,
+          "type": "boolean"
+        },
+        "publicationAuthorized": {
+          "type": "boolean"
+        },
+        "reviewGate": {
+          "const": "INDEPENDENT_MODEL_GREEN_AND_RELEASE_OWNER_EXACT_BYTE_CONFIRMATION",
+          "type": "string"
+        },
+        "routes": {
+          "items": {
+            "$ref": "#/$defs/publicRoute"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "type": "array"
+        },
+        "runtime": {
+          "const": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "routes",
+        "mutableAlias",
+        "page",
+        "runtime",
+        "publicationAuthorized",
+        "reviewGate",
+        "currentState"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "accessDecision": {
+          "const": false,
+          "type": "boolean"
+        },
+        "alignmentScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "authenticationAdapter": {
+          "const": false,
+          "type": "boolean"
+        },
+        "authorizationAdapter": {
+          "const": false,
+          "type": "boolean"
+        },
+        "automaticAction": {
+          "const": false,
+          "type": "boolean"
+        },
+        "behavioralDiagnosis": {
+          "const": false,
+          "type": "boolean"
+        },
+        "censorship": {
+          "const": false,
+          "type": "boolean"
+        },
+        "communityScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "consciousnessInference": {
+          "const": false,
+          "type": "boolean"
+        },
+        "controlActuation": {
+          "const": false,
+          "type": "boolean"
+        },
+        "credentials": {
+          "const": false,
+          "type": "boolean"
+        },
+        "enforcementAdapter": {
+          "const": false,
+          "type": "boolean"
+        },
+        "freedomScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "humanTraining": {
+          "const": false,
+          "type": "boolean"
+        },
+        "intentInference": {
+          "const": false,
+          "type": "boolean"
+        },
+        "keyGeneration": {
+          "const": false,
+          "type": "boolean"
+        },
+        "liveObservation": {
+          "const": false,
+          "type": "boolean"
+        },
+        "liveOptimization": {
+          "const": false,
+          "type": "boolean"
+        },
+        "lockStrengthScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "mcp": {
+          "const": false,
+          "type": "boolean"
+        },
+        "moralScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "network": {
+          "const": false,
+          "type": "boolean"
+        },
+        "personScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "personalData": {
+          "const": false,
+          "type": "boolean"
+        },
+        "policyDeployment": {
+          "const": false,
+          "type": "boolean"
+        },
+        "privateKeys": {
+          "const": false,
+          "type": "boolean"
+        },
+        "punishmentRecommendation": {
+          "const": false,
+          "type": "boolean"
+        },
+        "realPeople": {
+          "const": false,
+          "type": "boolean"
+        },
+        "recommendation": {
+          "const": false,
+          "type": "boolean"
+        },
+        "reinforcementScore": {
+          "const": false,
+          "type": "boolean"
+        },
+        "rewardRuntime": {
+          "const": false,
+          "type": "boolean"
+        },
+        "runtimeAgent": {
+          "const": false,
+          "type": "boolean"
+        },
+        "staticArtifact": {
+          "const": true,
+          "type": "boolean"
+        },
+        "syntheticOnly": {
+          "const": true,
+          "type": "boolean"
+        },
+        "unconstrainedAction": {
+          "const": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "staticArtifact",
+        "syntheticOnly",
+        "realPeople",
+        "personalData",
+        "liveObservation",
+        "liveOptimization",
+        "runtimeAgent",
+        "rewardRuntime",
+        "controlActuation",
+        "privateKeys",
+        "credentials",
+        "keyGeneration",
+        "authenticationAdapter",
+        "authorizationAdapter",
+        "enforcementAdapter",
+        "accessDecision",
+        "policyDeployment",
+        "automaticAction",
+        "recommendation",
+        "punishmentRecommendation",
+        "censorship",
+        "humanTraining",
+        "behavioralDiagnosis",
+        "intentInference",
+        "consciousnessInference",
+        "personScore",
+        "communityScore",
+        "freedomScore",
+        "moralScore",
+        "alignmentScore",
+        "reinforcementScore",
+        "lockStrengthScore",
+        "unconstrainedAction",
+        "network",
+        "mcp"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    },
+    "sourceBindings": {
+      "items": {
+        "$ref": "#/$defs/sourceBinding"
+      },
+      "maxItems": 64,
+      "minItems": 1,
+      "type": "array"
+    },
+    "syntheticFixtures": {
+      "items": {
+        "$ref": "#/$defs/syntheticFixture"
+      },
+      "maxItems": 256,
+      "minItems": 1,
+      "type": "array"
+    },
+    "vocabularies": {
+      "additionalProperties": false,
+      "properties": {
+        "behavioralContingencyQuadrants": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "classification": {
+                "enum": [
+                  "NEGATIVE_PUNISHMENT",
+                  "NEGATIVE_REINFORCEMENT",
+                  "POSITIVE_PUNISHMENT",
+                  "POSITIVE_REINFORCEMENT"
+                ],
+                "type": "string"
+              },
+              "operation": {
+                "enum": [
+                  "ADD",
+                  "REMOVE"
+                ],
+                "type": "string"
+              },
+              "responseDirection": {
+                "enum": [
+                  "DECREASE",
+                  "INCREASE"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "operation",
+              "responseDirection",
+              "classification"
+            ],
+            "type": "object",
+            "unevaluatedProperties": false
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array"
+        },
+        "keyAndAuthenticatorKinds": {
+          "items": {
+            "$ref": "#/$defs/keyKind"
+          },
+          "maxItems": 16,
+          "minItems": 4,
+          "type": "array"
+        },
+        "lanes": {
+          "items": {
+            "enum": [
+              "AUTHENTICATION_AUTHORIZATION_ENFORCEMENT",
+              "BEHAVIORAL_CONTINGENCY",
+              "BELLMAN_OPERATOR",
+              "CRYPTOGRAPHIC_VERIFICATION",
+              "DATA_GOVERNANCE",
+              "EPISTEMIC_CLAIM",
+              "FEEDBACK_CONTROL",
+              "FREEDOM_RELEVANT_CONDITIONS",
+              "MARKOV_DECISION_PROCESS",
+              "POLICY_GRADIENT",
+              "PROXY_AND_REWARD_CHANNEL",
+              "RECURRENT_DYNAMICS",
+              "STOCHASTIC_APPROXIMATION",
+              "SUPERVISED_OPTIMIZATION"
+            ],
+            "type": "string"
+          },
+          "maxItems": 14,
+          "minItems": 14,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "lockKinds": {
+          "items": {
+            "$ref": "#/$defs/lockKind"
+          },
+          "maxItems": 16,
+          "minItems": 6,
+          "type": "array"
+        },
+        "relationTypes": {
+          "items": {
+            "enum": [
+              "ANALOGY_ONLY",
+              "FORMAL_REDUCTION_UNDER_DECLARED_ASSUMPTIONS",
+              "NON_EQUIVALENT",
+              "OUTSIDE_PHASE_0"
+            ],
+            "type": "string"
+          },
+          "maxItems": 4,
+          "minItems": 4,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "terms": {
+          "items": {
+            "$ref": "#/$defs/term"
+          },
+          "maxItems": 128,
+          "minItems": 1,
+          "type": "array"
+        },
+        "unresolvedBehavioralClassification": {
+          "const": "UNCLASSIFIED",
+          "type": "string"
+        }
+      },
+      "required": [
+        "lanes",
+        "relationTypes",
+        "terms",
+        "keyAndAuthenticatorKinds",
+        "lockKinds",
+        "behavioralContingencyQuadrants",
+        "unresolvedBehavioralClassification"
+      ],
+      "type": "object",
+      "unevaluatedProperties": false
+    }
+  },
+  "required": [
+    "$schema",
+    "protocol",
+    "artifact",
+    "scope",
+    "vocabularies",
+    "equationCards",
+    "syntheticFixtures",
+    "nonEquivalences",
+    "conversionRegister",
+    "freedomRelevantEnvelopes",
+    "constitutionalBoundaries",
+    "kingdomSemanticOrientations",
+    "sourceBindings",
+    "counts",
+    "buildReceipt",
+    "publicHandoff"
+  ],
+  "title": "KINGDOM Loops, Locks & Freedom Relations Atlas — Phase 0",
+  "type": "object",
+  "unevaluatedProperties": false
+}
